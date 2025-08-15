@@ -1,9 +1,9 @@
 # img
 
-[![make-all](https://github.com/genuinetools/img/workflows/make%20all/badge.svg)](https://github.com/genuinetools/img/actions?query=workflow%3A%22make+all%22)
-[![make-image](https://github.com/genuinetools/img/workflows/make%20image/badge.svg)](https://github.com/genuinetools/img/actions?query=workflow%3A%22make+image%22)
-[![GoDoc](https://img.shields.io/badge/godoc-reference-5272B4.svg?style=for-the-badge)](https://godoc.org/github.com/genuinetools/img)
-[![Github All Releases](https://img.shields.io/github/downloads/genuinetools/img/total.svg?style=for-the-badge)](https://github.com/genuinetools/img/releases)
+
+
+
+
 
 Standalone, daemon-less, unprivileged Dockerfile and OCI compatible
 container image builder.
@@ -120,66 +120,30 @@ For installation instructions from binaries please visit the [Releases Page](htt
 
 #### From Source
 
+Requires Go 1.19 or newer.
+
 ```bash
-$ mkdir -p $GOPATH/src/github.com/genuinetools
-$ git clone https://github.com/genuinetools/img $GOPATH/src/github.com/genuinetools/img
-$ cd !$
-$ make
-$ sudo make install
+# Clone repository
+git clone https://github.com/Ju-NXH/img
+cd img
 
-# For packagers if you would like to disable the embedded `runc`, please use:
-$ make BUILDTAGS="seccomp noembed"
-```
+# Option A: use the helper script
+./update-deps.sh
 
-#### Alpine Linux
+# Option B: manual steps
+# go mod download
+# go mod tidy
 
-There is an [APKBUILD](https://pkgs.alpinelinux.org/package/edge/community/x86_64/img).
+# Build
+go build -o img .
 
-```console
-$ apk add img
-```
-
-#### Arch Linux
-
-There is an [AUR build](https://aur.archlinux.org/packages/img/).
-
-```console
-# Use whichever AUR helper you prefer
-$ yay -S img
-
-# Or build from the source PKGBUILD
-$ git clone https://aur.archlinux.org/packages/img.git
-$ cd img
-$ makepkg -si
-```
-
-#### Gentoo
-
-There is an [ebuild](https://github.com/gentoo/gentoo/tree/master/app-emulation/img).
-
-```console
-$ sudo emerge -a app-emulation/img
+# Optionally install to your PATH (Linux example)
+sudo install -m 0755 img /usr/local/bin/img
 ```
 
 #### Running with Docker
 
-Docker image `r.j3ss.co/img` is configured to be executed as an unprivileged user with UID 1000 and it does not need `--privileged` since `img` v0.5.11.
-
-```console
-$ docker run --rm -it \
-    --name img \
-    --volume $(pwd):/home/user/src:ro \ # for the build context and dockerfile, can be read-only since we won't modify it
-    --workdir /home/user/src \ # set the builder working directory
-    --volume "${HOME}/.docker:/root/.docker:ro" \ # for credentials to push to docker hub or a registry
-    --security-opt seccomp=unconfined --security-opt apparmor=unconfined \ # required by runc
-    r.j3ss.co/img build -t user/myimage .
-```
-
-To enable PID namespace isolation (which disallows build containers to `kill(2)` the `img` process), you need to specify
-`--privileged` so that build containers can mount `/proc` with unshared PID namespaces.
-Note that even with `--privileged`, `img` works as an unprivileged user with UID 1000.
-
-See [docker/cli patch](#upstream-patches) for how to allow mounting `/proc` without `--privileged`.
+Running with Docker images is no longer documented here. Build and run the `img` binary directly as shown above.
 
 ### Running with Kubernetes
 
