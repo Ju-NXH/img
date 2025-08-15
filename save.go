@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/containerd/containerd/namespaces"
-	"github.com/docker/docker/pkg/term"
+	"golang.org/x/term"
 	"github.com/genuinetools/img/client"
 	"github.com/moby/buildkit/identity"
 	"github.com/moby/buildkit/session"
@@ -91,7 +91,7 @@ func (cmd *saveCommand) writer() (io.WriteCloser, error) {
 		return os.Create(cmd.output)
 	}
 
-	if term.IsTerminal(os.Stdout.Fd()) {
+	if term.IsTerminal(int(os.Stdout.Fd())) {
 		return nil, fmt.Errorf("cowardly refusing to save to a terminal. Use the -o flag or redirect")
 	}
 

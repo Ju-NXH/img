@@ -14,7 +14,7 @@ import (
 	"github.com/docker/cli/cli/config/configfile"
 	"github.com/docker/cli/cli/config/types"
 	dockerapitypes "github.com/docker/docker/api/types"
-	"github.com/docker/docker/pkg/term"
+	"golang.org/x/term"
 	"github.com/docker/docker/registry"
 	registryapi "github.com/genuinetools/reg/registry"
 	"github.com/sirupsen/logrus"
