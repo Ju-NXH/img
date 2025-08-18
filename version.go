@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/genuinetools/img/internal/binutils"
-	"github.com/genuinetools/img/version"
+	"github.com/Ju-NXH/img/internal/binutils"
+	"github.com/Ju-NXH/img/version"
 	"github.com/spf13/cobra"
 	"runtime"
 )

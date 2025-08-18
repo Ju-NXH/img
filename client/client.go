@@ -6,7 +6,7 @@ import (
 
 	fuseoverlayfs "github.com/AkihiroSuda/containerd-fuse-overlayfs"
 	"github.com/containerd/containerd/snapshots/overlay"
-	"github.com/genuinetools/img/types"
+	"github.com/Ju-NXH/img/types"
 	"github.com/moby/buildkit/control"
 	"github.com/moby/buildkit/session"
 	"github.com/sirupsen/logrus"

@@ -23,7 +23,7 @@ import (
 	securejoin "github.com/cyphar/filepath-securejoin"
 	"github.com/docker/distribution/reference"
 	"github.com/docker/docker/pkg/archive"
-	"github.com/genuinetools/img/client"
+	"github.com/Ju-NXH/img/client"
 	controlapi "github.com/moby/buildkit/api/services/control"
 	bkclient "github.com/moby/buildkit/client"
 	"github.com/moby/buildkit/cmd/buildctl/build"

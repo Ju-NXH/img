@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/genuinetools/img/internal/binutils"
-	_ "github.com/genuinetools/img/internal/unshare"
-	"github.com/genuinetools/img/types"
-	"github.com/genuinetools/img/version"
+	"github.com/Ju-NXH/img/internal/binutils"
+	_ "github.com/Ju-NXH/img/internal/unshare"
+	"github.com/Ju-NXH/img/types"
+	"github.com/Ju-NXH/img/version"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )

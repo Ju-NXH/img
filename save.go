@@ -9,7 +9,7 @@ import (
 
 	"github.com/containerd/containerd/namespaces"
 	"golang.org/x/term"
-	"github.com/genuinetools/img/client"
+	"github.com/Ju-NXH/img/client"
 	"github.com/moby/buildkit/identity"
 	"github.com/moby/buildkit/session"
 )

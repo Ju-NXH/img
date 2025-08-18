@@ -116,7 +116,7 @@ NOTE: These steps work only for Linux. Compile and run in a container
 
 #### Binaries
 
-For installation instructions from binaries please visit the [Releases Page](https://github.com/genuinetools/img/releases).
+For installation instructions from binaries please visit the [Releases Page](https://github.com/Ju-NXH/img/releases).
 
 #### From Source
 
@@ -254,7 +254,7 @@ Setting up the rootfs... this may take a bit.
  => local://context                                                                   0.8s
  => => transferring context: 116.83MB                                                 0.8s
  => /bin/sh -c apk add --no-cache  bash  build-base  gcc  git  libseccomp-dev  linux  3.8s
- => copy /src-0 go/src/github.com/genuinetools/img/                                   1.5s
+ => copy /src-0 go/src/github.com/Ju-NXH/img/                                   1.5s
  => /bin/sh -c go get -u github.com/jteeuwen/go-bindata/...                           7.3s
  => /bin/sh -c make static && mv img /usr/bin/img                                    15.2s
  => /bin/sh -c git clone https://github.com/opencontainers/runc.git "$GOPATH/src/git  7.6s
@@ -513,7 +513,7 @@ Global Flags:
 $ img du 
 ID                                                                      RECLAIMABLE     SIZE            DESCRIPTION
 sha256:d9a48086f223d28a838263a6c04705c8009fab1dd67cc82c0ee821545de3bf7c true            911.8KiB        pulled from docker.io/tonistiigi/copy@sha256:476e0a67a1e4650c6adaf213269a2913deb7c52cbc77f954026f769d51e1a14e
-7ia86xm2e4hzn2u947iqh9ph2                                               true            203.2MiB        mount /dest from exec copy /src-0 /dest/go/src/github.com/genuinetools/img
+7ia86xm2e4hzn2u947iqh9ph2                                               true            203.2MiB        mount /dest from exec copy /src-0 /dest/go/src/github.com/Ju-NXH/img
 ...
 sha256:9f131fba0383a6aaf25ecd78bd5f37003e41a4385d7f38c3b0cde352ad7676da true            958.6KiB        pulled from docker.io/library/golang:alpine@sha256:a0045fbb52a7ef318937e84cf7ad3301b4d2ba6cecc2d01804f428a1e39d1dfc
 sha256:c4151b5a5de5b7e272b2b6a3a4518c980d6e7f580f39c85370330a1bff5821f1 true            472.3KiB        pulled from docker.io/tonistiigi/copy@sha256:476e0a67a1e4650c6adaf213269a2913deb7c52cbc77f954026f769d51e1a14e
@@ -671,7 +671,7 @@ The `native` backend creates image layers by simply copying files.
 
 The `overlayfs` backend uses the kernel's native overlayfs support. It requires
 a kernel patch from Ubuntu to be unprivileged, see
-[#22](https://github.com/genuinetools/img/issues/22).
+[#22](https://github.com/Ju-NXH/img/issues/22).
 
 #### fuse-overlayfs
 
@@ -682,7 +682,7 @@ patches. It requires a Linux kernel >= 4.18 and for
 
 ## Contributing
 
-Please do! This is a new project and can use some love <3. Check out the [issues](https://github.com/genuinetools/img/issues).
+Please do! This is a new project and can use some love <3. Check out the [issues](https://github.com/Ju-NXH/img/issues).
 
 The local directories are mostly re-implementations of `buildkit` interfaces to
 be unprivileged.

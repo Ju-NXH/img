@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/containerd/containerd/namespaces"
-	"github.com/genuinetools/img/client"
+	"github.com/Ju-NXH/img/client"
 	"github.com/moby/buildkit/session"
 	"github.com/moby/buildkit/util/appcontext"
 	"golang.org/x/sync/errgroup"
