@@ -120,7 +120,7 @@ For installation instructions from binaries please visit the [Releases Page](htt
 
 #### From Source
 
-Requires Go 1.19 or newer.
+Requires Go 1.25 or newer.
 
 ```bash
 # Clone repository
@@ -135,7 +135,7 @@ cd img
 # go mod tidy
 
 # Build
-go build -o img .
+CGO_ENABLED=1 go build -tags "seccomp osusergo dfrunmount dfsecrets dfssh noembed" -o img .
 
 # Optionally install to your PATH (Linux example)
 sudo install -m 0755 img /usr/local/bin/img

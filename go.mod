@@ -1,29 +1,26 @@
 module github.com/Ju-NXH/img
 
-go 1.19
+go 1.25
 
 require (
 	github.com/AkihiroSuda/containerd-fuse-overlayfs v1.0.0
-	github.com/containerd/console v1.0.3
+	github.com/containerd/console v1.0.4
 	github.com/containerd/containerd v1.7.19
 	github.com/containerd/go-runc v1.1.0
 	github.com/cyphar/filepath-securejoin v0.2.4
 	github.com/docker/cli v27.0.3+incompatible
 	github.com/docker/distribution v2.8.2+incompatible
 	github.com/docker/docker v27.0.3+incompatible
-	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.5.0
-	github.com/genuinetools/reg v0.16.1
-	github.com/mitchellh/hashstructure v1.1.0 // indirect
+	github.com/Ju-NXH/reg v0.17.0
 	github.com/moby/buildkit v0.15.0
-	github.com/opencontainers/image-spec v1.1.0-rc4
+	github.com/opencontainers/image-spec v1.1.0
 	github.com/opencontainers/runc v1.1.7
-	github.com/opentracing-contrib/go-stdlib v1.0.0 // indirect
-	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/cobra v1.7.0
-	go.etcd.io/bbolt v1.3.7
-	golang.org/x/sync v0.3.0
-	google.golang.org/grpc v1.57.0
+	go.etcd.io/bbolt v1.3.10
+	golang.org/x/sync v0.7.0
+	golang.org/x/term v0.20.0
+	google.golang.org/grpc v1.59.0
 )

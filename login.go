@@ -16,7 +16,7 @@ import (
 	dockerapitypes "github.com/docker/docker/api/types"
 	"golang.org/x/term"
 	"github.com/docker/docker/registry"
-	registryapi "github.com/genuinetools/reg/registry"
+	registryapi "github.com/Ju-NXH/reg/registry"
 	"github.com/sirupsen/logrus"
 )
 
