@@ -32,7 +32,7 @@ func (c *Client) Pull(ctx context.Context, image string) (*ListedImage, error) {
 	image = named.String()
 
 	// Get the identifier for the image.
-	identifier, err := source.NewImageIdentifier(image)
+	identifier, err := containerimage.NewImageIdentifier(image)
 	if err != nil {
 		return nil, err
 	}

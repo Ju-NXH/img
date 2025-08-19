@@ -1,6 +1,7 @@
 package client
 
 import (
+	"context"
 	"fmt"
 	"path/filepath"
 
@@ -19,7 +20,7 @@ import (
 	"github.com/moby/buildkit/worker/base"
 )
 
-func (c *Client) createController() error {
+func (c *Client) createController(ctx context.Context) error {
 	sm, err := c.getSessionManager()
 	if err != nil {
 		return fmt.Errorf("creating session manager failed: %v", err)
@@ -31,7 +32,7 @@ func (c *Client) createController() error {
 	}
 
 	// Create the new worker.
-	w, err := base.NewWorker(opt)
+	w, err := base.NewWorker(ctx, opt)
 	if err != nil {
 		return fmt.Errorf("creating worker failed: %v", err)
 	}
@@ -44,8 +45,12 @@ func (c *Client) createController() error {
 
 	// Add the frontends.
 	frontends := map[string]frontend.Frontend{}
-	frontends["dockerfile.v0"] = forwarder.NewGatewayForwarder(wc, builder.Build)
-	frontends["gateway.v0"] = gateway.NewGatewayFrontend(wc)
+	frontends["dockerfile.v0"] = forwarder.NewGatewayForwarder(wc.Infos(), builder.Build)
+	frontend, err = gateway.NewGatewayFrontend(wc.Infos(), []string{})
+	if err != nil {
+		return err
+	}
+	frontends["gateway.v0"] = frontend
 
 	// Create the cache storage
 	cacheStorage, err := bboltcachestorage.NewStore(filepath.Join(c.root, "cache.db"))
@@ -70,7 +75,7 @@ func (c *Client) createController() error {
 		Frontends:                 frontends,
 		ResolveCacheExporterFuncs: remoteCacheExporterFuncs,
 		ResolveCacheImporterFuncs: remoteCacheImporterFuncs,
-		CacheKeyStorage:           cacheStorage,
+		CacheStore:                cacheStorage,
 	})
 	if err != nil {
 		return fmt.Errorf("creating new controller failed: %v", err)
